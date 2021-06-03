@@ -20,7 +20,7 @@
  +
  +
  + ---
- + - File Location: root->Installation_ToolKit->Installation_ToolKit.php
+ + - File Location: Installation_ToolKit->Installation_ToolKit.php
  + - File Version:  0.5 - Tuesday, June, 01, 2021.
  + ---
  +%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -55,14 +55,17 @@
 */
 
 echo ("
+<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
+
 <HTML>
-		<HEAD>
-				<TITLE>Cerberus Content Management System - Post Installation Toolkit</TITLE>
+	<HEAD>
+		<TITLE>Cerberus Content Management System - Post Installation ToolKit</TITLE>
+		<META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html;charset=utf-8\">
 		</HEAD>
 		
 		<BODY>
-				<CENTER>Cerberus Content Management System - Post Installation ToolKit</CENTER>
-				<CENTER>[&nbsp;<A HREF=\"\">Close Open Applications</A>&nbsp;-&nbsp;</A><A HREF=\"?Application&61;Unpack\">Unpack Cerberus Content Management System Compressed Package</A>&nbsp;-&nbsp;<A HREF=\"./Cerberus/Install.php\">Install Cerberus Content Management System</A>&nbsp;]</CENTER>
+				<CENTER>Cerberus Content Management System - Post Installation ToolKit - Version 0.1</CENTER>
+				<CENTER>[&nbsp;<A HREF=\"?\">Close Open Applications</A>&nbsp;-&nbsp;</A><A HREF=\"?Application&#61;Unpack\">Unpack Cerberus Content Management System Compressed Package</A>&nbsp;-&nbsp;<A HREF=\"?Application&#61;Terminal\">Execute Terminal Commands</A>&nbsp;-&nbsp;<A HREF=\"./Cerberus/Install.php\">Install Cerberus Content Management System</A>&nbsp;]</CENTER>
 				<HR>
 ");
 
@@ -74,7 +77,7 @@ echo ("
  ===========================
 */
 	
-if ([$_GET["Application"] == "Unpack") {
+if ($_GET["Application"] == "Unpack") {
 
 system('unzip Cerberus.zip');
 
@@ -88,16 +91,16 @@ system('unzip Cerberus.zip');
  ===========================
 */
 	 
-if ($_GET["Application"] == "Execute_Commands") {
+if ($_GET["Application"] == "Terminal") {
 	
 $_Installation_ToolKit_POST_TERMINAL_COMMANDS				= $_POST['Installation_ToolKit_Terminal_Commands'];
 	
 if (!$_Installation_ToolKit_POST_TERMINAL_COMMANDS) {
 
 echo ("
-			<FORM ACTION=\"?Application&#61;Execute_Commands\" METHOD=\"POST\">
-				Please Visit: <A HREF=\"https://www.GitHub.com/TinkeSoftware/CerberusCMS_Archives/\">Tinke Softwares' - Cerberus Content Management System Archives - GitHub Repository</A> for the most recent CerberusCMS Version<BR>
-				<TEXTAREA ROWS=\"15\" COLS=\"75\" NAME=\"Installation_Toolkit_Terminal_Commands\">Execute Terminal Commands On Operating System From This Post-HypterText-PreProcessor Script E.G.: 'git clone https://github.com/TinkeSoftware/CerberusCMS_Archives/blob/master/Version - 4/Build - 0.7/Cerberus Content Management System - Version - 4 - Build - 0.7 - Edit Number - 5 - Final - Wynn ~ Ghost.zip as 'Cerberus.zip''</TEXTAREA><BR>
+			<FORM ACTION=\"?Application&#61;Terminal\" METHOD=\"POST\">
+				Please Visit: <A HREF=\"https://www.GitHub.com/TinkeSoftware/CerberusCMS_Archives/\">Tinke Softwares' - Cerberus Content Management System Archives - GitHub Repository</A> for the most recent Archived CerberusCMS compressed package<BR>
+				<TEXTAREA ROWS=\"15\" COLS=\"75\" NAME=\"Installation_ToolKit_Terminal_Commands\">Execute Terminal Commands On Operating System From This Post-HypterText-PreProcessor Script E.G.: 'git clone https://github.com/TinkeSoftware/CerberusCMS_Archives/blob/master/Version - 4/Build - 0.7/Cerberus Content Management System - Version - 4 - Build - 0.7 - Edit Number - 5 - Final - Wynn ~ Ghost.zip as 'Cerberus.zip''</TEXTAREA><BR>
 				<INPUT TYPE=\"SUBMIT\" VALUE=\"Execute\">
 			</FORM>
 ");
@@ -105,7 +108,10 @@ echo ("
 } else {
 	
 		echo ("Executing Terminal Command: '$_Installation_ToolKit_POST_TERMINAL_COMMANDS'<BR>");
-		exec($_Installation_ToolKit_POST_TERMINAL_COMMANDS);
+	
+$_Installation_ToolKit_EXECUTE_TERMINAL_COMMAND				= shell_exec($_Installation_ToolKit_POST_TERMINAL_COMMANDS);
+	
+		echo ("$_Installation_ToolKit_EXECUTE_TERMINAL_COMMAND");
 
 } // [ + ] IF_!POST_Installation_ToolKit_POST_TERMINAL_COMMANDS
 
