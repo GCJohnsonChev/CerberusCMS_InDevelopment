@@ -100,7 +100,7 @@ if (!$_Installation_ToolKit_POST_TERMINAL_COMMANDS) {
 echo ("
 			<FORM ACTION=\"?Application&#61;Terminal\" METHOD=\"POST\">
 				Please Visit: <A HREF=\"https://www.GitHub.com/TinkeSoftware/CerberusCMS_Archives/\">Tinke Softwares' - Cerberus Content Management System Archives - GitHub Repository</A> for the most recent Archived CerberusCMS compressed package<BR>
-				<TEXTAREA ROWS=\"15\" COLS=\"75\" NAME=\"Installation_ToolKit_Terminal_Commands\">Execute Terminal Commands On Operating System From This Post-HypterText-PreProcessor Script E.G.: 'wget https://GitHub.com/TinkeSoftware/<File_Name_Here.zip>'</TEXTAREA><BR>
+				<TEXTAREA ROWS=\"15\" COLS=\"75\" NAME=\"Installation_ToolKit_Terminal_Commands\">Execute Terminal Commands On This Operating System From This Post-HypterText-PreProcessor Script E.G.: 'wget https://GitHub.com/TinkeSoftware/<File_Name_Here.zip>'</TEXTAREA><BR>
 				<INPUT TYPE=\"SUBMIT\" VALUE=\"Execute\">
 			</FORM>
 ");
